@@ -35,7 +35,7 @@ public class Number16Panel extends JPanel
 		italic.addItemListener(listener);
 
 		fontSizeSetter = new JTextField(5);
-		fontSizeSetter.addActionListener(actionlistener);
+//		fontSizeSetter.addActionListener(actionlistener);
 		add(saying);
 		add(bold);
 		add(italic);
