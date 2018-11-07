@@ -2,6 +2,7 @@ package Chapter5Lab;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 //****************************************************************
 //BaseballStats.java
 //
@@ -22,15 +23,20 @@ public class BaseballStats
 	public static void main(String[] args) throws IOException
 	{
 		Scanner fileScan, lineScan;
-		
 		String fileName, name;
+		ArrayList<String> hits, outs, walks, sacrifices;
 		
+		hits = new ArrayList<String>();
+		outs = new ArrayList<String>();
+		walks = new ArrayList<String>();
+		sacrifices = new ArrayList<String>();
+
+		int hitCounter = 0, outCounter = 0, walkCounter = 0, sacrificeCounter = 0;
+
 		Scanner scan = new Scanner(System.in);
 		
 		System.out.print("Enter the name of the input file: ");
-		
 		fileName = scan.nextLine();
-		
 		fileScan = new Scanner(new File("src/Chapter5Lab/" + fileName + ".txt"));
 
 		while (fileScan.hasNext())
@@ -38,14 +44,47 @@ public class BaseballStats
 			name = fileScan.next();
 			System.out.print("Name: " + name);
 
-			lineScan = new Scanner(name);
+			lineScan = new Scanner(fileScan.next());
 			lineScan.useDelimiter(",");
 
+
 			while (lineScan.hasNext())
+			{
 				System.out.println("  " + lineScan.next());
+
+//------------------------------------------
+//ASK SLATA FOR HELP
+//------------------------------------------
+//				if (lineScan.next().equalsIgnoreCase("h"))
+//				{
+//					hits.add(hitCounter, lineScan.next());
+//					hitCounter++;
+//				}
+//
+//				else if (lineScan.next().equalsIgnoreCase("o"))
+//				{
+//					outs.add(outCounter, lineScan.next());
+//					outCounter++;
+//				}
+//
+//				else if (lineScan.next().equalsIgnoreCase("w"))
+//				{
+//					walks.add(walkCounter, lineScan.next());
+//					walkCounter++;
+//				}
+//
+//				else if (lineScan.next().equalsIgnoreCase("s"))
+//				{
+//					sacrifices.add(sacrificeCounter, lineScan.next());
+//					sacrificeCounter++;
+//				}
+			}
 
 			System.out.println();
 		}
+
+
+		fileScan.close();
 		// Read and process each line of the file
 	}
 }
