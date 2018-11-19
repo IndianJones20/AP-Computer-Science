@@ -9,8 +9,8 @@ public class Number2
 		String userString;
 		int charatInt = 0;
 		Scanner scan = new Scanner(System.in);
-		
 		System.out.print("Please enter a string: ");
+
 		userString = scan.nextLine();
 		
 		while(charatInt < userString.length())

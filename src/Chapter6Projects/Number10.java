@@ -7,7 +7,6 @@ public class Number10
 	public static void main(String[] args)
 	{
 		int christDay = 1, counter = 0;
-
 		ArrayList<String> days = new ArrayList<String>();
 		String drummers = "Twelve Drummers drumming";
 		String pipers = "Eleven Pipers piping";
