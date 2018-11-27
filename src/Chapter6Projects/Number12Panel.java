@@ -17,7 +17,9 @@ public class Number12Panel extends JPanel
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
+
 		int STARTLOCATIONX = 100, STARTLOCATIONY = 100;
+
 		final int width = 20, height = 20;
 
 		for (int i = 0; i < 8; i++)
@@ -35,6 +37,7 @@ public class Number12Panel extends JPanel
 
 				STARTLOCATIONX += 20;
 			}
+
 			if (g.getColor() == Color.black)
 			{
 				g.setColor(Color.white);
