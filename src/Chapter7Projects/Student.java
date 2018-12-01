@@ -14,7 +14,7 @@ public class Student
     schoolAddress = school;
   }
   
-  public void setTestSCores(int testNum, int testGrade)
+  public void setTestScore(int testNum, int testGrade)
   {
     switch(testNum)
     {
