@@ -13,6 +13,18 @@ public class Number2
     
     Student marsha = new Student("Marsha", "Jones", mhome, school);
     
+    john.setTestScore(1, 95);
+    john.setTestScore(2, 82);
+    john.setTestScore(3, 94);
+    
+    
+    marsha.setTestScore(1, 78);
+    marsha.setTestScore(2, 87);
+    marsha.setTestScore(3, 91);
+    
+    john.calculateAverage();
+    marsha.calculateAverage();
+    
     Ssytem.out.println(john);
     System.out.println();
     System.out.println(marsha);
