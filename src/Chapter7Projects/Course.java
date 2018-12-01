@@ -1,27 +1,44 @@
 package Chapter7Projects;
 
-public class Course()
+import java.util.*;
+
+public class Course
 {
-	ArrayList<String> studentsTakingCourse = ne ArrayList<String>();
+	ArrayList<Student> studentsTakingCourse = new ArrayList<Student>();
 	private String course;
 	public Course(String courseName)
 	{
 		course = courseName;
 	}
-	
-	
+
+
 	public void addStudent(Student student)
 	{
-		
-	}d
-	
+		studentsTakingCourse.add(student);
+	}
+
 	public int average()
 	{
-		int counter = 0;
-		while(counter < studentsTakingCourse.size())
+		int average = 0;
+		for(int i = 0; i<studentsTakingCourse.size(); i++)
 		{
-			studentsTakingCourse.
+			average += studentsTakingCourse.get(i).computeAverage();	
 		}
+		
+		return average;
 	}
-	
+
+	public String roll()
+	{
+		String names = "";
+
+		for(int i = 0; i<studentsTakingCourse.size(); i++)
+		{
+			names += studentsTakingCourse.get(i).getName();
+			names += "\n" ;
+		}
+		
+		return names;
+	}
+
 }
