@@ -29,6 +29,12 @@ public class Number1Methods
 		}
 
 	}
+	
+	public long printAcctNum()
+	{
+		return acctNumber;
+	}
+	
 	public void createAccount(String Name)
 	{
 		name = Name;
