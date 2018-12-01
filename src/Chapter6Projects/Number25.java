@@ -51,6 +51,11 @@ public class Number25
 
 			}
 
+			if (checkNum == 1)
+			{
+				System.out.println("Ace of " + suit);
+			}
+
 			if (checkNum == 11)
 			{
 				System.out.println("Jack of " + suit);

@@ -10,6 +10,7 @@ public class Number16Panel extends JPanel
 {
 	public Number16Panel()
 	{
+		// sets up frame
 		setPreferredSize(new Dimension(400, 400));
 		setBackground(Color.orange);
 	}
@@ -18,21 +19,28 @@ public class Number16Panel extends JPanel
 	{
 		super.paintComponent(g);
 
-		int x, y, width, height, lineX, lineY, lineWidth, lineHeight;
+		// brick x, y, widht, & height
+		int x, y, width, height;
 
+		// White line x, y, width, height
+		int lineX, lineY, lineWidth, lineHeight;
+
+		// sets values of starting brick
 		x = 0;
 		y = 0;
 		width = 50;
 		height = 30;
 
+		// sets values of starting line
 		lineX = x + 50;
 		lineY = y;
 		lineWidth = 10;
 		lineHeight = 30;
 
+		// prints out bricks and lines for all rows
 		for (int i = 0; i < 20; i++)
 		{
-			// FINAL FOR LOOP
+			// Prints out bricks and lines for one row
 			for (int j = 0; j < 10; j++)
 			{
 				g.setColor(new Color(80, 25, 33));
@@ -45,12 +53,14 @@ public class Number16Panel extends JPanel
 				lineX += 60;
 			}
 
+			// Add horizontal line for separator
 			g.fillRect(0, y, 400, 5);
 
 			// Resets to deafult
 			x = 0;
 			lineX = x + 50;
 
+			// offsets next line by a little for authenticity
 			if (i % 2 == 0)
 			{
 				x -= 110;
@@ -63,6 +73,7 @@ public class Number16Panel extends JPanel
 				lineX = x + 50;
 			}
 
+			// increases y to draw next line
 			y += 30;
 			lineY += 30;
 		}
