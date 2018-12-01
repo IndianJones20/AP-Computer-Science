@@ -22,8 +22,8 @@ public class Number2
     marsha.setTestScore(2, 87);
     marsha.setTestScore(3, 91);
     
-    john.calculateAverage();
-    marsha.calculateAverage();
+    john.computeAverage();
+    marsha.computeAverage();
     
     Ssytem.out.println(john);
     System.out.println();
