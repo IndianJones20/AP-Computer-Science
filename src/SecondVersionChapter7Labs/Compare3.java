@@ -2,7 +2,7 @@ package SecondVersionChapter7Labs;
 
 public class Compare3
 {
-	public static Comparable largest(Comparable<Comparable<Comparable>> yeet, Comparable yeet2, Comparable yeet3)
+	public static Comparable largest(Comparable yeet, Comparable yeet2, Comparable yeet3)
 	{
 		if (yeet.compareTo(yeet2) > 0 && yeet.compareTo(yeet3) > 0)
 		{
