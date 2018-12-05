@@ -24,6 +24,21 @@ public class Comparisons
 		System.out.println();
 
 		System.out.println(largeBoi.largest(u1, u2, u3));
+
+		int u4, u5, u6;
+
+		System.out.println("Enter 3 Integers");
+		System.out.print("Int 1: ");
+		u4 = scan.nextInt();
+
+		System.out.print("Int 2: ");
+		u5 = scan.nextInt();
+
+		System.out.print("Int 3: ");
+		u6 = scan.nextInt();
+
+		System.out.println(largeBoi.largest(u4, u5, u6));
+
 	}
 
 }

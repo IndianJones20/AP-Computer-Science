@@ -25,7 +25,6 @@ public class Number20Panel extends JPanel
 		width = 900;
 		height = 900;
 
-
 		for (int i = 1; i <= 8; i++)
 		{
 			switch (i)

@@ -21,7 +21,6 @@ public class Number25
 		suits.add(2, "spades");
 		suits.add(3, "diamonds");
 
-
 		Random rand = new Random();
 		int checkSuit, checkNum;
 		String suit = "";
@@ -56,7 +55,7 @@ public class Number25
 				System.out.println("Ace of " + suit);
 			}
 
-			if (checkNum == 11)
+			else if (checkNum == 11)
 			{
 				System.out.println("Jack of " + suit);
 			}
