@@ -1,30 +1,49 @@
-package SecondVersionChapter7Labs;
+package Chapter7Lab;
 
-public class FlexAccount
+import java.util.Random;
+
+public class SecondAccount
 {
+
 	private double balance;
 	private String name;
 	private long acctNum;
+	private static int numAccounts = 0;
+	Random rand = new Random();
 
 	// -------------------------------------------------
 	// Constructor -- initializes balance, owner, and account number
 	// -------------------------------------------------
-	public FlexAccount(double initBal, String owner, long number)
+	public SecondAccount(double initBal, String owner, long number)
 	{
 		balance = initBal;
 		name = owner;
 		acctNum = number;
+		numAccounts++;
 	}
 
-	public FlexAccount(double initBal, String owner)
+	public SecondAccount(double initBal, String owner)
 	{
 		balance = initBal;
 		name = owner;
+		acctNum = rand.nextLong();
+		if (acctNum < 0)
+		{
+			acctNum = acctNum / -1;
+		}
+		numAccounts++;
 	}
 
-	public FlexAccount(String owner)
+	public SecondAccount(String owner)
 	{
 		name = owner;
+		balance = 0;
+		acctNum = rand.nextLong();
+		if (acctNum < 0)
+		{
+			acctNum = acctNum / -1;
+		}
+		numAccounts++;
 	}
 
 	// -------------------------------------------------
@@ -68,7 +87,50 @@ public class FlexAccount
 	// -------------------------------------------------
 	public String toString()
 	{
-		return "Name:" + name + "\nAccount Number: " + acctNum + "\nBalance: " + balance;
+		return "Name: " + name + "\nAccount Number: " + acctNum + "\nBalance: " + balance;
 
+	}
+
+	public static int getNumAccounts()
+	{
+		return numAccounts;
+	}
+
+	public void close()
+	{
+		name = "CLOSED";
+		balance = 0;
+		numAccounts--;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public long getAcctNum()
+	{
+		return acctNum;
+	}
+
+	public static SecondAccount consolidate(SecondAccount acct1, SecondAccount acct2)
+	{
+		if (acct1.getAcctNum() == acct2.getAcctNum())
+		{
+			System.out.println("Nice Try Hacker");
+			return new SecondAccount("Nice Try Hacker");
+		}
+
+		else if (acct1.getName().equals(acct2.getName()))
+		{
+			System.out.println();
+			return new SecondAccount((acct1.getBalance() + acct1.getBalance()), acct1.getName());
+		}
+
+		else
+		{
+			System.out.println();
+			return new SecondAccount((acct1.getBalance() + acct1.getBalance()), "Defaulty Boi");
+		}
 	}
 }

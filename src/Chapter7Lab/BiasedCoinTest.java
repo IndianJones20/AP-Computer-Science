@@ -1,4 +1,4 @@
-package SecondVersionChapter7Labs;
+package Chapter7Lab;
 
 public class BiasedCoinTest
 {

@@ -1,11 +1,5 @@
 package Chapter7Lab;
 
-//******************************************************************
-//ChangingPeople.java
-//
-//Demonstrates parameter passing -- contains a method that should
-//change to Person objects.
-//******************************************************************
 public class ChangingPeople
 {
 	// ---------------------------------------------------------
@@ -13,25 +7,25 @@ public class ChangingPeople
 	// object. These are sent to a method that should make
 	// some changes.
 	// ---------------------------------------------------------
-	public static void main (String[] args)
+	public static void main(String[] args)
 	{
-		Person person1 = new Person ("Sally", 13);
-		Person person2 = new Person ("Sam", 15);
+		Person person1 = new Person("Sally", 13);
+		Person person2 = new Person("Sam", 15);
 
 		int age = 21;
 		String name = "Jill";
 
-		System.out.println ("\nParameter Passing... Original values...");
-		System.out.println ("person1: " + person1);
-		System.out.println ("person2: " + person2);
-		System.out.println ("age: " + age + "\tname: " + name + "\n");
+		System.out.println("\nParameter Passing... Original values...");
+		System.out.println("person1: " + person1);
+		System.out.println("person2: " + person2);
+		System.out.println("age: " + age + "\tname: " + name + "\n");
 
-		changePeople (person1, person2, age, name);
+		changePeople(person1, person2, age, name);
 
-		System.out.println ("\nValues after calling changePeople...");
-		System.out.println ("person1: " + person1);
-		System.out.println ("person2: " + person2);
-		System.out.println ("age: " + age + "\tname: " + name + "\n");
+		System.out.println("\nValues after calling changePeople...");
+		System.out.println("person1: " + person1);
+		System.out.println("person2: " + person2);
+		System.out.println("age: " + age + "\tname: " + name + "\n");
 	}
 
 	// -------------------------------------------------------------------
@@ -41,10 +35,10 @@ public class ChangingPeople
 	// -------------------------------------------------------------------
 	public static void changePeople(Person p1, Person p2, int age, String name)
 	{
-		System.out.println ("\nInside changePeople... Original parameters...");
-		System.out.println ("person1: " + p1);
-		System.out.println ("person2: " + p2);
-		System.out.println ("age: " + age + "\tname: " + name + "\n");
+		System.out.println("\nInside changePeople... Original parameters...");
+		System.out.println("person1: " + p1);
+		System.out.println("person2: " + p2);
+		System.out.println("age: " + age + "\tname: " + name + "\n");
 
 		// Make changes
 		Person p3 = new Person(name, age);
