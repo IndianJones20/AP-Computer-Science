@@ -1,0 +1,8 @@
+package SecondVersionChapter7Labs;
+
+public interface Complexity
+{
+	public void setComplexity(int complexity);
+
+	public int getComplexity();
+}
