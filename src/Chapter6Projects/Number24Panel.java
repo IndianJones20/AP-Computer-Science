@@ -7,7 +7,7 @@ public class Number24Panel extends JPanel
 {
 	public Number24Panel()
 	{
-		int again,left, right;
+		int again, left, right;
 		String userPalindrome, pal;
 
 		do
@@ -19,6 +19,7 @@ public class Number24Panel extends JPanel
 			pal = pal.replace("'", "");
 			pal = pal.replace(",", "");
 			pal = pal.replace(";", "");
+
 			left = 0;
 			right = pal.length() - 1;
 
