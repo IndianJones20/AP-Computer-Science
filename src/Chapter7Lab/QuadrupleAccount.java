@@ -1,18 +1,15 @@
 package Chapter7Lab;
 
-public class OhBabyATripleAccountClass
+public class QuadrupleAccount
 {
 	private double balance;
 	private String name;
 	private long acctNum;
 
-	private static int depositCounter, withdrawCounter;
-	private static double totalDeposited, totalWithdrew;
-
 	// -------------------------------------------------
 	// Constructor -- initializes balance, owner, and account number
 	// -------------------------------------------------
-	public OhBabyATripleAccountClass(double initBal, String owner, long number)
+	public QuadrupleAccount(double initBal, String owner, long number)
 	{
 		balance = initBal;
 		name = owner;
@@ -26,12 +23,7 @@ public class OhBabyATripleAccountClass
 	public void withdraw(double amount)
 	{
 		if (balance >= amount)
-		{
 			balance -= amount;
-			totalWithdrew += amount;
-			withdrawCounter++;
-		}
-
 		else
 			System.out.println("Insufficient funds");
 	}
@@ -42,8 +34,6 @@ public class OhBabyATripleAccountClass
 	public void deposit(double amount)
 	{
 		balance += amount;
-		totalDeposited += amount;
-		depositCounter++;
 	}
 
 	// -------------------------------------------------
@@ -59,31 +49,23 @@ public class OhBabyATripleAccountClass
 	// -------------------------------------------------
 	public String toString()
 	{
-		return "Name: " + name + "\nAccount Number: " + acctNum + "\nBalance: " + balance;
+		return "Name: " + name + "\nAccount Number: " + acctNum + "\nBalance: " + balance + "\n";
 	}
 
-	public static int getDepositCounter()
+	public void transfer(QuadrupleAccount acct, double amount)
 	{
-		return depositCounter;
-	}
-
-	public static int getWithdrawCounter()
-	{
-		return withdrawCounter;
-	}
-
-	public static double getTotalDeposited()
-	{
-		return totalDeposited;
-	}
-
-	public static double getTotalWithdrew()
-	{
-		return totalWithdrew;
+		this.withdraw(amount);
+		acct.deposit(amount);
 	}
 
 	public long getAcctNumber()
 	{
 		return acctNum;
+	}
+
+	public static void transfer(QuadrupleAccount acct1, QuadrupleAccount acct2, double amount)
+	{
+		acct1.withdraw(amount);
+		acct2.deposit(amount);
 	}
 }

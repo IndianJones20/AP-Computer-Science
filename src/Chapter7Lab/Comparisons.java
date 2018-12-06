@@ -9,7 +9,7 @@ public class Comparisons
 		Scanner scan = new Scanner(System.in);
 		String u1, u2, u3;
 
-		Compare3 largeBoi = new Compare3();
+		compare3 largeBoi = new compare3();
 
 		System.out.println("Enter 3 strings");
 		System.out.print("String 1: ");

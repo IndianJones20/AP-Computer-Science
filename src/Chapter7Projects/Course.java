@@ -1,16 +1,16 @@
 package Chapter7Projects;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class Course
 {
 	ArrayList<Student> studentsTakingCourse = new ArrayList<Student>();
 	private String course;
+
 	public Course(String courseName)
 	{
 		course = courseName;
 	}
-
 
 	public void addStudent(Student student)
 	{
@@ -20,11 +20,13 @@ public class Course
 	public int average()
 	{
 		int average = 0;
-		for(int i = 0; i<studentsTakingCourse.size(); i++)
+		for (int i = 0; i < studentsTakingCourse.size(); i++)
 		{
-			average += studentsTakingCourse.get(i).computeAverage();	
+			average += studentsTakingCourse.get(i).computeAverage();
 		}
-		
+
+		average = average / studentsTakingCourse.size();
+
 		return average;
 	}
 
@@ -32,12 +34,12 @@ public class Course
 	{
 		String names = "";
 
-		for(int i = 0; i<studentsTakingCourse.size(); i++)
+		for (int i = 0; i < studentsTakingCourse.size(); i++)
 		{
 			names += studentsTakingCourse.get(i).getName();
-			names += "\n" ;
+			names += "\n";
 		}
-		
+
 		return names;
 	}
 
