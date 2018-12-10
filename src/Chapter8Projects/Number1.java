@@ -9,11 +9,11 @@ public class Number1
 		int userInput, count;
 		String keepGoing = "y";
 		Scanner scan = new Scanner(System.in);
-		int[] yeet = new int[51];
+		int[] wassup = new int[51];
 
 		for (int index = 0; index < 50; index++)
 		{
-			yeet[index] = 0;
+			wassup[index] = 0;
 		}
 
 		while (keepGoing.equalsIgnoreCase("y"))
@@ -24,9 +24,9 @@ public class Number1
 
 			if (userInput >= 0 && userInput <= 50)
 			{
-				count = yeet[userInput];
+				count = wassup[userInput];
 				count++;
-				yeet[userInput] = count;
+				wassup[userInput] = count;
 			}
 
 			else
@@ -35,7 +35,7 @@ public class Number1
 
 		for (int index = 0; index < 51; index++)
 		{
-			System.out.println("Number of " + index + "s: " + yeet[index]);
+			System.out.println("Number of " + index + "s: " + wassup[index]);
 		}
 
 	}
