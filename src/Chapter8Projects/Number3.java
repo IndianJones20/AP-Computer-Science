@@ -1,95 +1,93 @@
 package Chapter8Projects;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Number3
 {
-
-	public static void main(String[] args)
+	public static void main(String[] args) throws FileNotFoundException
 	{
-		Scanner scan = new Scanner("src/Chapter8Projects/Histogram.txt");
+		Scanner scan = new Scanner(new File("src/Chapter8Projects/Histogram.txt"));
 
-		int counter = 9, max10 = 0, max20 = 0, max30 = 0, max40 = 0, max50 = 0, max60 = 0, max70 = 0, max80 = 0,
-				max90 = 0, max100 = 0;
+		int max10 = 0, max20 = 0, max30 = 0, max40 = 0, max50 = 0, max60 = 0, max70 = 0, max80 = 0, max90 = 0,
+				max100 = 0, hold, index = 0;
 
 		int[] maximums = new int[10];
 
-		for (int index = 0; index < 10; index++)
+		for (int hello = 0; hello < 10; hello++)
 		{
-			maximums[index] = 0;
+			maximums[hello] = 0;
 		}
 
 		while (scan.hasNextInt())
 		{
-			for (int index = 0; index < 18; index++)
-			{
-				maximums[index] = scan.nextInt();
-			}
+			hold = scan.nextInt();
 
-			if (maximums[0] > 1 && maximums[0] <= 10)
+			if (hold > 1 && hold <= 10)
 			{
 				max10 = maximums[0];
 				max10++;
 				maximums[0] = max10;
 			}
 
-			if (maximums[1] > 10 && maximums[1] <= 20)
+			if (hold > 10 && hold <= 20)
 			{
 				max20 = maximums[1];
 				max20++;
 				maximums[1] = max20;
 			}
 
-			if (maximums[2] > 20 && maximums[2] <= 30)
+			if (hold > 20 && hold <= 30)
 			{
 				max30 = maximums[2];
 				max30++;
 				maximums[2] = max30;
 			}
 
-			if (maximums[3] > 30 && maximums[3] <= 40)
+			if (hold > 30 && hold <= 40)
 			{
 				max40 = maximums[3];
 				max40++;
 				maximums[3] = max40;
 			}
 
-			if (maximums[4] > 40 && maximums[4] <= 50)
+			if (hold > 40 && hold <= 50)
 			{
 				max50 = maximums[4];
 				max50++;
 				maximums[4] = max50;
 			}
 
-			if (maximums[5] > 50 && maximums[5] <= 60)
+			if (hold > 50 && hold <= 60)
 			{
 				max60 = maximums[5];
 				max60++;
 				maximums[5] = max60;
 			}
 
-			if (maximums[6] > 60 && maximums[6] <= 70)
+			if (hold > 60 && hold <= 70)
 			{
 				max70 = maximums[6];
 				max70++;
 				maximums[6] = max70;
 			}
 
-			if (maximums[7] > 70 && maximums[7] <= 80)
+			if (hold > 70 && hold <= 80)
 			{
 				max80 = maximums[7];
 				max80++;
 				maximums[7] = max80;
 			}
 
-			if (maximums[8] > 80 && maximums[8] <= 90)
+			if (hold > 80 && hold <= 90)
 			{
 				max90 = maximums[8];
 				max90++;
 				maximums[8] = max90;
 			}
 
-			if (maximums[9] > 90 && maximums[9] <= 100)
+			if (hold > 90 && hold <= 100)
 			{
 				max100 = maximums[9];
 				max100++;
@@ -97,10 +95,133 @@ public class Number3
 			}
 		}
 
-		while (counter > -1)
+		while (index < 11)
 		{
-			System.out.println(maximums[counter]);
-			counter--;
+			switch (index)
+			{
+			case 1:
+				System.out.print("01 - 10s: ");
+				hold = 0;
+				while (hold < maximums[0])
+				{
+					System.out.print("*");
+					hold++;
+				}
+				System.out.print("\t(" + maximums[0] + ")");
+				System.out.println();
+				break;
+
+			case 2:
+				System.out.print("11 - 20s: ");
+				hold = 0;
+				while (hold < maximums[1])
+				{
+					System.out.print("*");
+					hold++;
+				}
+				System.out.print("\t(" + maximums[1] + ")");
+				System.out.println();
+				break;
+
+			case 3:
+				System.out.print("21 - 30s: ");
+				hold = 0;
+				while (hold < maximums[2])
+				{
+					System.out.print("*");
+					hold++;
+				}
+				System.out.print("\t(" + maximums[2] + ")");
+				System.out.println();
+				break;
+
+			case 4:
+				System.out.print("31 - 40s: ");
+				hold = 0;
+				while (hold < maximums[3])
+				{
+					System.out.print("*");
+					hold++;
+				}
+				System.out.print("\t(" + maximums[3] + ")");
+				System.out.println();
+				break;
+
+			case 5:
+				System.out.print("41 - 50s: ");
+				hold = 0;
+				while (hold < maximums[4])
+				{
+					System.out.print("*");
+					hold++;
+				}
+				System.out.print("\t(" + maximums[4] + ")");
+				System.out.println();
+				break;
+
+			case 6:
+				System.out.print("51 - 60s: ");
+				hold = 0;
+				while (hold < maximums[5])
+				{
+					System.out.print("*");
+					hold++;
+				}
+				System.out.print("\t(" + maximums[5] + ")");
+				System.out.println();
+				break;
+
+			case 7:
+				System.out.print("61 - 70s: ");
+				hold = 0;
+				while (hold < maximums[6])
+				{
+					System.out.print("*");
+					hold++;
+				}
+				System.out.print("\t(" + maximums[6] + ")");
+				System.out.println();
+				break;
+
+			case 8:
+				System.out.print("71 - 80s: ");
+				hold = 0;
+				while (hold < maximums[7])
+				{
+					System.out.print("*");
+					hold++;
+				}
+				System.out.print("\t(" + maximums[7] + ")");
+				System.out.println();
+				break;
+
+			case 9:
+				System.out.print("81 - 90s: ");
+				hold = 0;
+				while (hold < maximums[8])
+				{
+					System.out.print("*");
+					hold++;
+				}
+				System.out.print("\t(" + maximums[8] + ")");
+				System.out.println();
+				break;
+
+			case 10:
+				System.out.print("91 - 100s: ");
+				hold = 0;
+				while (hold < maximums[9])
+				{
+					System.out.print("*");
+					hold++;
+				}
+				System.out.print("\t(" + maximums[9] + ")");
+				System.out.println();
+				break;
+			}
+
+			index++;
 		}
+		scan.close();
 	}
 }
