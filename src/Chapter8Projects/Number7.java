@@ -12,12 +12,12 @@ public class Number7
 		{
 			for (int col = 0; col < card[row].length; col++)
 			{
-				for (int counter = 0; counter < 52; counter++)
-				{
-					someCard = new Number7Methods(counter + 1);
-					card[row][col] = someCard;
-				}
+				someCard = new Number7Methods(col + 1);
+				card[row][col] = someCard;
 			}
+			System.out.println();
 		}
+
+		someCard.dealACard();
 	}
 }
