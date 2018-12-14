@@ -34,7 +34,7 @@ public class Number8
 		States.add(statesCounter, "PA");
 		statesCounter++;
 
-		numbers.add(phoneNumCounter, (long) 7728583);
+		numbers.add(phoneNumCounter, (long) 6107728583L);
 		phoneNumCounter++;
 
 		System.out.println(Addresses.get(0) + ", " + Cities.get(0) + " " + States.get(0));
