@@ -34,8 +34,6 @@ public class Star
 		g.setColor(Color.white);
 		g.fillPolygon(xx, yy, 10);
 
-
 	}
 
 }
-//Made by Tanuj Gaikwad
