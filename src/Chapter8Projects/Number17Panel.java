@@ -2,7 +2,6 @@ package Chapter8Projects;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.util.Random;
@@ -14,7 +13,11 @@ public class Number17Panel extends JPanel
 	Random rand = new Random();
 
 	Point[][] coords = new Point[8][8];
+	int[][] coordsCheck = new int[8][8];
+
 	int STARTLOCATIONX = 100, STARTLOCATIONY = 100;
+
+	int holdx = 0, holdy = 0;
 
 	public Number17Panel()
 	{
@@ -27,6 +30,7 @@ public class Number17Panel extends JPanel
 			{
 				coords[i][j] = pointP(STARTLOCATIONX, STARTLOCATIONY);
 				STARTLOCATIONX += 40;
+				coordsCheck[i][j] = 0;
 			}
 			STARTLOCATIONY += 40;
 			STARTLOCATIONX -= 320;
@@ -57,26 +61,25 @@ public class Number17Panel extends JPanel
 
 				g.fillRect((int) coords[i][j].getX(), (int) coords[i][j].getY(), width, height);
 
-				hold = rand.nextInt(3);
-
-				if (hold == 0 && redCounter < 5 && g.getColor() == Color.black)
-				{
-					g.setColor(Color.red);
-					g.fillOval((int) coords[i][j].getX(), (int) coords[i][j].getY(), width, height);
-					redCounter++;
-				}
-
-				else if (hold == 1 && blackCounter < 8 && g.getColor() == Color.black)
-				{
-					g.setColor(Color.gray);
-					g.fillOval((int) coords[i][j].getX(), (int) coords[i][j].getY(), width, height);
-					blackCounter++;
-				}
+//				hold = rand.nextInt(4);
+//
+//				if (hold == 0 && redCounter < 5 && g.getColor() == Color.black)
+//				{
+//					g.setColor(Color.red);
+//					g.fillOval((int) coords[i][j].getX(), (int) coords[i][j].getY(), width, height);
+//					System.out.println(coords[i][j]);
+//					redCounter++;
+//				}
+//
+//				else if (hold == 1 && blackCounter < 8 && g.getColor() == Color.black)
+//				{
+//					g.setColor(Color.gray);
+//					g.fillOval((int) coords[i][j].getX(), (int) coords[i][j].getY(), width, height);
+//					blackCounter++;
+//				}
 
 				STARTLOCATIONX += 40;
 
-				g.setFont(new Font("Helvetica", Font.BOLD, 25));
-				g.drawString(coords[i][j].toString(), 25, 25);
 			}
 
 			if (g.getColor() == Color.black || g.getColor() == Color.gray || g.getColor() == Color.red)
@@ -88,6 +91,47 @@ public class Number17Panel extends JPanel
 			}
 			STARTLOCATIONX -= 320;
 			STARTLOCATIONY += 40;
+		}
+
+		rand.setSeed(55);
+
+		redCounter = 0;
+		while (redCounter < 5)
+		{
+			holdx = rand.nextInt(7);
+			holdy = rand.nextInt(7);
+
+			if (((holdx % 2 == 1 && holdy % 2 == 0) || (holdx % 2 == 0 && holdy % 2 == 1))
+					&& coordsCheck[holdx][holdy] == 0)
+			{
+				g.setColor(Color.red);
+				g.fillOval((int) coords[holdx][holdy].getX(), (int) coords[holdx][holdy].getY(), width, height);
+				coordsCheck[holdx][holdy] = 1;
+				// System.out.println(coords[holdx][holdy]);
+				redCounter++;
+			}
+			System.out.println(coords[holdx][holdy]);
+		}
+
+		blackCounter = 0;
+		while (blackCounter < 8)
+		{
+			holdx = rand.nextInt(7);
+			holdy = rand.nextInt(7);
+			if (coordsCheck[holdx][holdy] == 1)
+			{
+				System.out.println("duplicate coordinates" + coords[holdx][holdy]);
+			}
+			if (((holdx % 2 == 1 && holdy % 2 == 0) || (holdx % 2 == 0 && holdy % 2 == 1))
+					&& coordsCheck[holdx][holdy] == 0)
+			{
+				g.setColor(Color.gray);
+				g.fillOval((int) coords[holdx][holdy].getX(), (int) coords[holdx][holdy].getY(), width, height);
+				coordsCheck[holdx][holdy] = 1;
+				System.out.println(coords[holdx][holdy]);
+				blackCounter++;
+			}
+			// System.out.println(coords[holdx][holdy]);
 		}
 	}
 
