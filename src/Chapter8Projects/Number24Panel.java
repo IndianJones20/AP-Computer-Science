@@ -21,6 +21,7 @@ public class Number24Panel extends JPanel
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
+		repaint();
 	}
 
 	private class ColorLocationDetector implements MouseListener
@@ -53,6 +54,7 @@ public class Number24Panel extends JPanel
 				setBackground(Color.red);
 				repaint();
 			}
+			repaint();
 		}
 
 		public void mouseExited(MouseEvent event)
@@ -68,6 +70,8 @@ public class Number24Panel extends JPanel
 				setBackground(Color.red);
 				repaint();
 			}
+
+			repaint();
 		}
 	}
 }
