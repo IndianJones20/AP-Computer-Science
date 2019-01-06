@@ -25,13 +25,13 @@ public class Number26
 				for (int k = 0; k < 24; k++)
 				{
 					patientChart[i][j][k] = fileScan.nextInt();
-					totalPatients += fileScan.nextInt();
+					totalPatients += patientChart[i][j][k];
 				}
 			}
 		}
 
 		PPW = totalPatients / 4;
-		PPD = totalPatients / 24;
+		PPD = totalPatients / 28;
 		PPH = totalPatients / 672;
 
 		System.out.println("Patients per Week: " + PPW);

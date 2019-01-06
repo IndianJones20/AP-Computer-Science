@@ -12,25 +12,23 @@ import javax.swing.JPanel;
 
 public class Number23Panel extends JPanel
 {
-	int x1 = 0, x2 = 0, y1 = 0, y2 = 0, mouseSpeed = 0;
-	JLabel mouseSpeedLabel;
+	int x1 = 0, x2 = 0, y1 = 0, y2 = 0, mouseDistance = 0;
+	JLabel mouseDistanceLabel;
 
 	public Number23Panel()
 	{
-		mouseSpeed = (int) Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
+		mouseDistanceLabel = new JLabel("Total Distance: " + mouseDistance);
+		mouseDistanceLabel.setFont(new Font("Ariel", Font.BOLD, 40));
 
-		mouseSpeedLabel = new JLabel("Current Mouse Speed: " + mouseSpeed);
-		mouseSpeedLabel.setFont(new Font("Ariel", Font.BOLD, 40));
-
-		mouseSpeedListener listener = new mouseSpeedListener();
+		mouseDistanceListener listener = new mouseDistanceListener();
 		addMouseListener(listener);
 		addMouseMotionListener(listener);
-		add(mouseSpeedLabel);
+		add(mouseDistanceLabel);
 		setBackground(Color.black);
 		setPreferredSize(new Dimension(600, 600));
 	}
 
-	private class mouseSpeedListener implements MouseListener, MouseMotionListener
+	private class mouseDistanceListener implements MouseListener, MouseMotionListener
 	{
 
 		@Override
@@ -80,6 +78,14 @@ public class Number23Panel extends JPanel
 		{
 			x2 = e.getX();
 			y2 = e.getY();
+
+			mouseDistance += (int) Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
+
+			mouseDistanceLabel.setText("Total Distance: " + mouseDistance + " pixels");
+
+			x1 = x2;
+			y1 = y2;
+
 		}
 
 	}

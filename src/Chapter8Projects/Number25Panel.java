@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -14,6 +15,8 @@ public class Number25Panel extends JPanel
 	private ImageIcon ship, laser, currentImage;
 
 	private final int JUMP = 10, IMAGE_SIZE = 31;
+
+	boolean shootLaser = false;
 
 	private int x, y;
 
@@ -27,7 +30,11 @@ public class Number25Panel extends JPanel
 
 		currentImage = ship;
 
-		setBackground(Color.cyan);
+		mouseFollower listener = new mouseFollower();
+
+		addMouseListener(listener);
+		addMouseMotionListener(listener);
+		setBackground(Color.black);
 		setPreferredSize(new Dimension(750, 750));
 		setFocusable(true);
 	}
@@ -35,10 +42,16 @@ public class Number25Panel extends JPanel
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
+
+		if (shootLaser)
+		{
+			laser.paintIcon(this, g, x + 205, y - 500);
+		}
 		currentImage.paintIcon(this, g, x, y);
+
 	}
 
-	private class mouseFollower implements MouseListener
+	private class mouseFollower implements MouseListener, MouseMotionListener
 	{
 
 		@Override
@@ -50,15 +63,15 @@ public class Number25Panel extends JPanel
 		@Override
 		public void mousePressed(MouseEvent e)
 		{
-			// TODO Auto-generated method stub
-
+			shootLaser = true;
+			repaint();
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e)
 		{
-			// TODO Auto-generated method stub
-
+			shootLaser = false;
+			repaint();
 		}
 
 		@Override
@@ -73,6 +86,21 @@ public class Number25Panel extends JPanel
 		{
 			// TODO Auto-generated method stub
 
+		}
+
+		@Override
+		public void mouseDragged(MouseEvent e)
+		{
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void mouseMoved(MouseEvent e)
+		{
+			x = e.getX() - 256;
+			y = e.getY() - 256;
+			repaint();
 		}
 
 	}
